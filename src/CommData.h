@@ -3,14 +3,15 @@
 
 #include <Object/Object.h>
 
-class DriveData : public Object {
-    GENERATED_BODY(DriveData, Object);
+class CommData : public Object {
+    GENERATED_BODY(CommData, Object)
 
 public:
     enum class DataType : uint8_t {
         None,
         Speed,
-        Direction
+        Direction,
+        Battery
     };
 
     DataType dataType = DataType::None;
