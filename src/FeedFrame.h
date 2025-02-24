@@ -1,25 +1,19 @@
 #ifndef NEVERA_COMMON_FEEDFRAME_H
 #define NEVERA_COMMON_FEEDFRAME_H
 
-#include <Object/Object.h>
 
 //Encoded in JPEG
-class FeedFrame : public Object {
-    GENERATED_BODY(FeedFrame, Object)
+struct FeedFrame {
+	size_t size = 0;
+	void* data = nullptr;
 
-public:
-	Archive& serialize(Archive& archive) noexcept override{
-		archive << header;
-		archive << shiftedSize;
-		archive << data;
-		archive << trailer;
-		return archive;
+	virtual ~FeedFrame(){
+		if(data){
+			free(data);
+			data = nullptr;
+		}
 	}
 
-	std::vector<uint8_t> header;
-	std::vector<uint8_t> shiftedSize;
-	std::vector<uint8_t> data;
-	std::vector<uint8_t> trailer;
 
 	static constexpr size_t HeaderTrailerLength = 8;
 	static constexpr uint8_t Header[HeaderTrailerLength] = { 0x18, 0x20, 0x55, 0xf2, 0x5a, 0xc0, 0x4d, 0xaa };
