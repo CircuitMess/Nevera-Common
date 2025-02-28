@@ -3,6 +3,16 @@
 
 #include <Object/Object.h>
 
+/**
+ * 	Direction encoding:
+ * 	0 - forward, -1 - left, 1 - right
+ *
+ *
+ * 	Boost encoding:
+ * 	max: 3, min: -3
+ * 	0 - no movement
+ */
+
 class CommData : public Object {
     GENERATED_BODY(CommData, Object)
 
