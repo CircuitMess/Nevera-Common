@@ -8,6 +8,16 @@ static constexpr const char* VehicleIP = "11.0.0.2";
 static constexpr const uint16_t UDPPort = 6001;
 static constexpr const uint16_t TCPPort = 6000;
 
+/**
+ * 	Direction encoding:
+ * 	0 - forward, -1 - left, 1 - right
+ *
+ *
+ * 	Boost encoding:
+ * 	max: 3, min: -3
+ * 	0 - no movement
+ */
+
 class CommData : public Object {
     GENERATED_BODY(CommData, Object)
 
