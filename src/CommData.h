@@ -3,6 +3,11 @@
 
 #include <Object/Object.h>
 
+static constexpr const char* ControllerIP = "11.0.0.1";
+static constexpr const char* VehicleIP = "11.0.0.2";
+static constexpr const uint16_t UDPPort = 6001;
+static constexpr const uint16_t TCPPort = 6000;
+
 /**
  * 	Direction encoding:
  * 	0 - forward, -1 - left, 1 - right
@@ -21,7 +26,8 @@ public:
         None,
         Speed,
         Direction,
-        Battery
+        Battery,
+		NoFeed
     };
 
     DataType dataType = DataType::None;
