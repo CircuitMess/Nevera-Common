@@ -27,7 +27,8 @@ public:
         Speed,
         Direction,
         Battery,
-		NoFeed
+		NoFeed,
+        Connection
     };
 
     DataType dataType = DataType::None;
